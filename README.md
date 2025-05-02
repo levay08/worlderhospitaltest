@@ -36,19 +36,6 @@ This is a simple, intentionally vulnerable PHP web application simulating an onl
 3. Visit  
    `http://localhost:8080`
 
-MySQL root password: `rootpass`  
-Database name: `worlder_hospital`
-
-## Default Credentials
-
-**Doctors**  
-Email: jcena@whospital.com  
-Password: doc123  
-
-**Patients**  
-Email: john@jimail.com  
-Password: pass123  
-
 ## Live Demo
 
 To try the live version, go to:  
