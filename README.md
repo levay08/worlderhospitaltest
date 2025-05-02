@@ -1,6 +1,6 @@
 # Worlder Hospital - Vulnerable Healthcare Web App
 
-This is a simple, intentionally vulnerable PHP web application simulating an online healthcare system. It allows patients to register and book appointments, and doctors to manage schedules and patients. Built for security testing, training, and CTF-style exercises.
+This is a simple, intentionally vulnerable PHP web application simulating an online healthcare system. It allows patients to register and book appointments, and doctors to manage schedules and patients. Built for security testing exercises.
 
 ## Requirements
 
