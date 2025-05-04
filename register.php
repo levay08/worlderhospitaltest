@@ -1,6 +1,8 @@
 <?php
 include("db.php");
 
+$registered = false;
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
@@ -13,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $sql = "INSERT INTO patients (name, email, password, record_file)
                 VALUES ('$name', '$email', '$password', '$file')";
         mysqli_query($conn, $sql);
-        header("Location: login.php");
-        exit;
+        $registered = true;
+        $registeredName = $name;
     } else {
         $error = "All fields are required.";
     }
@@ -30,15 +32,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <body>
 <div class="container">
     <h2>Patient Registration</h2>
+
     <?php if (!empty($error)) echo "<p>$error</p>"; ?>
-    <form method="post" enctype="multipart/form-data">
-        <input type="text" name="name" placeholder="Full Name">
-        <input type="email" name="email" placeholder="Email">
-        <input type="password" name="password" placeholder="Password">
-        <label>Upload Insurance Card</label>
-        <input type="file" name="insurance_card">
-        <button type="submit">Register</button>
-    </form>
+
+    <?php if ($registered): ?>
+        <p>Welcome, <?php echo $registeredName; ?></p>
+        <p>Your registration was successful.</p>
+    <?php else: ?>
+        <form method="post" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Full Name">
+            <input type="email" name="email" placeholder="Email">
+            <input type="password" name="password" placeholder="Password">
+            <label>Upload Insurance Card</label>
+            <input type="file" name="insurance_card">
+            <button type="submit">Register</button>
+        </form>
+    <?php endif; ?>
 </div>
 </body>
 </html>
+
